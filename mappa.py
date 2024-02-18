@@ -1,7 +1,7 @@
 from geopandas import read_file
 from folium import Map, GeoJson, Popup
 
-map_data = read_file("./basa/cumuna/cumuna.shp")
+map_data = read_file("./finaiti/cumuna/cumuna.shp")
 
 min_lat, max_lat = 35.0, 40.0
 min_lon, max_lon = 11.0, 16.5
