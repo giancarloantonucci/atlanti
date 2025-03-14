@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Alegreya+Sans:wght@400;600;700&display=swap');
 
-html,
-body {
+html, body {
     height: 100%;
     margin: 0;
 }
@@ -12,16 +11,58 @@ body {
     flex-direction: column;
 }
 
-h1 {
+header {
+    width: 100%;
+    padding: 20px 0;
     text-align: center;
-    margin-bottom: 20px;
+    background: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.title-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+}
+
+.logo {
+    height: 77px;
+    width: auto;
+}
+
+.title-text {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+/* First line of title */
+.title-top {
+    font-size: 2.7em;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: #1C75BC;
+    letter-spacing: 1.5px;
+}
+
+/* Second line of title */
+.title-bottom {
+    font-size: 1.6em;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #1463A5;
+    letter-spacing: 1.2px;
 }
 
 #map-container {
     flex: 1;
+    width: 100%;
+    display: flex;
 }
 
 embed {
     width: 100%;
     height: 100%;
+    border: none;
 }
