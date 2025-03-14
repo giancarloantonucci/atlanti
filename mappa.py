@@ -94,7 +94,7 @@ global_js = """
       }
   }
 
-  function expandSectionForLayer(layer_id) {
+    function expandSectionForLayer(layer_id) {
       var infoElem = document.getElementById("info_" + layer_id);
       if(infoElem) {
           var placesList = infoElem.parentElement.parentElement;
@@ -102,14 +102,6 @@ global_js = """
               placesList.style.transition = "max-height 0.4s ease-out";
               placesList.style.maxHeight = placesList.scrollHeight + "px";
               placesList.classList.add("expanded");
-              var provinceBlock = placesList.parentElement;
-              if(provinceBlock) {
-                  var header = provinceBlock.querySelector(".province-header");
-                  if(header) {
-                      var icon = header.querySelector(".toggle-icon");
-                      if(icon) { icon.innerHTML = "&#9660;"; }
-                  }
-              }
               setTimeout(function(){
                   var sidebar = document.getElementById("sidebar");
                   var offset = 75;
@@ -117,7 +109,7 @@ global_js = """
               }, 400);
           }
       }
-  }
+    }
 
   window.layer_map = {};
   window.layer_info = {};
@@ -234,19 +226,9 @@ for province_code in sorted_province_codes:
         m.get_root().html.add_child(Element(js_assign))
 
     # Province header with expandable list
-    if province_name in scn_to_layerid:
-        province_layer_id = scn_to_layerid[province_name]
-        header_link = f"""
-            <a href="#" onclick="toggleSidebarInfo('{province_layer_id}'); highlightFeature('{province_layer_id}'); expandSectionForLayer('{province_layer_id}'); event.stopPropagation(); return false;">
-                {province_name}
-            </a>
-        """
-    else:
-        header_link = province_name
-
     locations_html += f"""
     <li class="province-block" style="border-left: 6px solid {province_color};">
-      <span class="province-header"><span class="toggle-icon">&#9654;</span> {header_link}</span>
+      <span class="province-header">{province_name}</span>
       <ul class="places-list" style="max-height: 0; overflow: hidden; transition: max-height 0.4s ease-out;">
         {''.join(place_items_html)}
       </ul>
@@ -265,28 +247,20 @@ collapse_js = """
 document.addEventListener("DOMContentLoaded", function() {
     var headers = document.querySelectorAll(".province-header");
     headers.forEach(function(header) {
-        header.addEventListener("click", function(e) {
-            if (e.target.tagName.toLowerCase() === 'a') {
-                return;
-            }
+        header.addEventListener("click", function() {
             var placesList = header.nextElementSibling;
             var provinceBlock = header.parentElement;
-
             if (placesList) {
                 if (placesList.classList.contains("expanded")) {
                     placesList.style.transition = "max-height 0.3s ease-in";
                     placesList.style.maxHeight = "0";
                     placesList.classList.remove("expanded");
                     provinceBlock.classList.remove("expanded");
-                    var icon = header.querySelector(".toggle-icon");
-                    if (icon) { icon.innerHTML = "&#9654;"; }
                 } else {
                     placesList.style.transition = "max-height 0.4s ease-out";
                     placesList.style.maxHeight = placesList.scrollHeight + "px";
                     placesList.classList.add("expanded");
                     provinceBlock.classList.add("expanded");
-                    var icon = header.querySelector(".toggle-icon");
-                    if (icon) { icon.innerHTML = "&#9660;"; }
                 }
             }
         });
