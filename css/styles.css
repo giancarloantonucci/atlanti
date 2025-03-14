@@ -27,7 +27,7 @@ header {
 }
 
 .logo {
-    height: 77px;
+    height: 85px;
     width: auto;
 }
 
@@ -35,14 +35,15 @@ header {
     display: flex;
     flex-direction: column;
     text-align: left;
+    color: #333;
 }
 
 /* First line of title */
 .title-top {
-    font-size: 2.7em;
+    font-size: 2.5em;
     font-weight: 700;
     text-transform: uppercase;
-    color: #1C75BC;
+    /* color: #1C75BC; */
     letter-spacing: 1.5px;
 }
 
@@ -51,8 +52,14 @@ header {
     font-size: 1.6em;
     font-weight: 600;
     text-transform: uppercase;
-    color: #1463A5;
+    /* color: #1463A5; */
     letter-spacing: 1.2px;
+}
+
+.big-letter {
+    font-size: 1.4em;
+    display: inline-block;
+    line-height: 1;
 }
 
 #map-container {
