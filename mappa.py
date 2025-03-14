@@ -65,7 +65,7 @@ global_js = """
           if (window.layer_map.hasOwnProperty(key)) {
               var lyr = window.layer_map[key];
               var origColor = lyr.options.originalColor || lyr.options.color;
-              lyr.setStyle({ fillOpacity: 0.2, color: origColor });
+              lyr.setStyle({ fillOpacity: 0.3, color: origColor });
               lyr.selected = false;
           }
       }
@@ -225,7 +225,7 @@ for province_code in sorted_province_codes:
               {layer_js_name}.on("mouseout", function(e) {{
                   if (!{layer_js_name}.selected) {{
                       var origColor = {layer_js_name}.options.originalColor || {layer_js_name}.options.color;
-                      {layer_js_name}.setStyle({{ fillOpacity: 0.2, color: origColor }});
+                      {layer_js_name}.setStyle({{ fillOpacity: 0.3, color: origColor }});
                   }}
               }});
           }});
