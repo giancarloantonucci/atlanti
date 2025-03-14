@@ -39,10 +39,10 @@ provinces = gpd.read_file("../finaiti/pruvinci/pruvinci.shp")
 province_mapping = {row["PROVINCE"]: row["SCN"] for _, row in provinces.iterrows()}
 
 # %% Create the map
-min_lat, max_lat = 35.0, 40.0
+min_lat, max_lat = 34.7, 39.7
 min_lon, max_lon = 12.0, 17.5
 m = folium.Map(
-    location=(37.5, 15.0),
+    location=(37.2, 15.0),
     zoom_start=8,
     max_bounds=True,
     min_lat=min_lat,
