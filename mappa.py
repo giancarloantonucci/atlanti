@@ -309,5 +309,5 @@ sidebar_html = f"""
 m.get_root().html.add_child(Element(sidebar_html))
 
 # %% Save and open the map
-m.save('mappa.html')
+m.save('./mappa.html')
 webbrowser.open(f"file://{os.path.abspath('mappa.html')}")
